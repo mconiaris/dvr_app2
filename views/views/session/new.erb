@@ -1,0 +1,17 @@
+<h1>Welcome to the DVR App</h1>
+
+<form method="POST" action="/session">
+  <%= render :erb, :_login %>
+  <input type="submit" value="Login" />
+</form>
+<p>Or...</p>
+<!-- This is not working properly. It's submitting new blank entries or the name of a user not in the
+dababase. -->
+<form method="GET" action="/viewer/new">
+  <input type="submit" value="Signup" />
+</form>
+
+<% if flash[:error] %>
+  <p style="color:red;"><%= flash[:error] %></p>
+  <p>Please <a href="/viewer/new">sign up</a>.</p>
+<% end %>

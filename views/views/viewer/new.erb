@@ -1,0 +1,10 @@
+<h1>Sign Up For the DVR App</h1>
+
+<form method="POST" action="/viewer">
+  <%= render :erb, :_login %>
+  <input type="submit" value="Login" />
+</form>
+
+<% if flash[:error] %>
+  <p style="color:red;"><%= flash[:error] %></p>
+<% end %>
