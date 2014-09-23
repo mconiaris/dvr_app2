@@ -37,6 +37,7 @@ class App < ApplicationController
 
   # viewer SHOW
   get('/viewer/:id') do
+    binding.pry
     @viewer = Viewer.find(id: params[:id])
     render(:erb, :'viewer/show')
   end
