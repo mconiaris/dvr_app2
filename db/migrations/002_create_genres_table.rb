@@ -1,5 +1,7 @@
+puts "running creating genres table"
 Sequel.migration do
-
+  # if we can infer
+  # the opposite action we can use change
   # what we want to do
   up do
     create_table(:genres) do
@@ -12,5 +14,4 @@ Sequel.migration do
   down do
     drop_table(:genres)
   end
-
-  end
+end
