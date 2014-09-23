@@ -9,7 +9,7 @@ Sequel.migration do
 
   # the undo
   down do
-    drop_table(:genres_viewers) do
+    drop_table(:genres_series) do
     end
   end
 end
