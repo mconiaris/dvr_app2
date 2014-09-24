@@ -36,7 +36,7 @@ class App < ApplicationController
   end
 
   # viewer SHOW
-  get('/viewer/:id') do
+  get('/viewer/#{current_user_id}') do
     @viewer = Viewer.find(id: params[:id])
     render(:erb, :'viewer/show')
   end
