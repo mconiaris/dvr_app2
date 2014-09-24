@@ -14,7 +14,7 @@ class App < ApplicationController
     user = Viewer.find(name: params[:user_name])
     if user.nil? # if there was no user found with that name
       # flash is like session, except it only lasts for ONE MORE request!
-      flash[:error] = "No user found with that name!"
+      flash[:error] = "No user found with that name! Please sign in."
       redirect to('/')
     else
       # add a user to the session hash
