@@ -31,9 +31,22 @@ class App < ApplicationController
     redirect to('/')
   end
 
+  get('/viewer/new') do
+    render(:erb, :'viewer/new')
+  end
+
   # viewer SHOW
   get('/viewer/:id') do
     @viewer = Viewer.find(id: params[:id])
     render(:erb, :'viewer/show')
+  end
+
+  post('/viewer') do
+    Viewer.create(name: params["user_name"])
+    # Add id to params to that viewers/:id will
+    # render it.
+    current_user_id = Viewer.find(name: params["user_name"]).id
+    # I need to refresh this for it to work.
+    redirect to("/viewer/#{current_user_id}"), 307
   end
 end
